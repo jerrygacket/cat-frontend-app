@@ -1,7 +1,17 @@
 <template>
   <div>
     <main>
-    <h1>Home</h1>
+    <HomePageCards />
   </main>
   </div>
 </template>
+
+<script>
+import HomePageCards from '@/components/HomePageCards.vue';
+
+export default {
+  components: {
+    HomePageCards
+  }
+}
+</script>

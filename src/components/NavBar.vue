@@ -1,15 +1,17 @@
 <template>
     <MDBNavbar expand="lg" light bg="light" container>
-      <MDBNavbarBrand href="#">CAT</MDBNavbarBrand>
+      <MDBNavbarBrand href="/">CAT</MDBNavbarBrand>
       <MDBNavbarToggler
         @click="collapse1 = !collapse1"
         target="#navbarSupportedContent"
       ></MDBNavbarToggler>
       <MDBCollapse v-model="collapse1" id="navbarSupportedContent">
         <MDBNavbarNav class="mb-2 mb-lg-0" right>
-            <MDBNavbarItem v-for="link in links" :key="link.title" :to="link.url" :active="$route.path == link.url">
+            <MDBNavbarItem v-for="link in links" :key="link.id" :to="link.url" :active="$route.path == link.url">
                 <span v-html="link.title"></span>
         </MDBNavbarItem>
+        
+  <modalLogin />
         </MDBNavbarNav>
       </MDBCollapse>
     </MDBNavbar>
@@ -25,6 +27,7 @@ import {
   MDBCollapse
 } from 'mdb-vue-ui-kit';
 import { ref } from 'vue';
+import modalLogin from '@/components/modals/ModalLogin.vue'
 
 export default {
   components: {
@@ -33,7 +36,8 @@ export default {
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarItem,
-  MDBCollapse
+  MDBCollapse,
+  modalLogin
   },
   data () {
     return {
@@ -42,7 +46,7 @@ export default {
     }
   },
   created () {
-    this.links = this.$store.getters.getMainMenuLinkks;
+    this.links = this.$store.getters.getMainMenuLinks;
   }
 }
 </script>

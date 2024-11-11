@@ -1,5 +1,5 @@
 <template>
-  <MDBContainer fluid>
+  <MDBContainer>
     <navBar />
     <RouterView />
   </MDBContainer>

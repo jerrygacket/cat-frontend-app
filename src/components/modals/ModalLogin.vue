@@ -20,18 +20,18 @@
       </MDBModalHeader>
       <MDBModalBody>
         
-      <!-- Email input -->
+      <!-- Username input -->
       <MDBInput
-        type="email"
-        label="Email address"
-        id="form1Email"
-        v-model="form1Email"
+        type="username"
+        label="Username address"
+        id="form1Username"
+        v-model="form1Username"
         wrapperClass="mb-1"
-        :invalidFeedback="getErrors('form1Email')"
-        @change="v$.form1Email.$touch()"
+        :invalidFeedback="getErrors('form1Username')"
+        @change="v$.form1Username.$touch()"
       />
-      <div class="form-item mb-4" :class="{ errorInput:  getErrors('form1Email') }">
-    <div class="error-text">{{ getErrors('form1Email') }}</div>
+      <div class="form-item mb-4" :class="{ errorInput:  getErrors('form1Username') }">
+    <div class="error-text">{{ getErrors('form1Username') }}</div>
   </div>
       <!-- Password input -->
       <MDBInput
@@ -89,7 +89,7 @@ export default {
     },
     data () {
         return {
-            form1Email: '',
+            form1Username: '',
             form1Password: '',
             modalLogin: false,
         }
@@ -98,7 +98,7 @@ export default {
         form1Password: {
             required
         },
-        form1Email: {
+        form1Username: {
             required
         }
     },
@@ -108,7 +108,7 @@ export default {
             // console.log(this.v$)
             if (!this.v$.$invalid) {
                 const user = {
-                    email: this.form1Email,
+                    username: this.form1Username,
                     password: this.form1Password
                 }
                 console.log(user);
@@ -116,7 +116,7 @@ export default {
             }
         },
         closeModal() {
-            this.form1Email = '';
+            this.form1Username = '';
             this.form1Password = '';
             this.v$.$reset();
             this.modalLogin = false;
